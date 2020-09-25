@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+    <head>
+        <title>Животные в наших приютах</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/animal_shelter.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            {% if user.is_authenticated %}
+                <p align="right">{{ user.username }}</p>
+            {% else %}
+                <p align="right">Not logged in.</p>
+            {% endif %}
+            <h1><a href="{% url 'animals:animals_list' %}">Животные в наших приютах</a></h1>
+        <a href="{% url 'animals:new_animal' %}" class="top-menu">iiiiiiiiiiiiii<span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'animal_shelter/base.html' %}
+
+{% block content %}
+
+<ul>{% for animal in animals_list %}
+        <li><a href="{% url 'animals:animal_detail' animal.pk %}" >{{ animal.name }}</a> {% if animal.special %}, {{ animal.special }} {% endif %}</li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}

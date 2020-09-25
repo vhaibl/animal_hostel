@@ -1,0 +1,19 @@
+{% extends 'animal_shelter/base.html' %}
+
+{% block content %}
+    <h3 >{{ animal_detail.name }}</h3>
+
+    <table>
+        <td><img src="http://thiscatdoesnotexist.com"></td>
+        <td >
+
+            Особые приметы: {% if animal_detail.special %}{{ animal_detail.special }} {% else %} Нет {% endif %} <br>
+            Вес: {{ animal_detail.weight }} кг.<br>
+            Рост: {{ animal_detail.height }} см.<br>
+            Возвраст: {{ animal_detail.age }} лет<br>
+            Прибыл: {{ animal_detail.arrival }}<br>
+            </p>
+        </td>
+</table>
+{% endblock %}
+
