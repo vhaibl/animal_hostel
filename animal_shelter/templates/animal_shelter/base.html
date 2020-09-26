@@ -10,7 +10,7 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <p align="right">{{ user.username }}</p>
+                <p align="right">{{ user.first_name }} {{ user.last_name }}</p>
             {% else %}
                 <p align="right">Not logged in.</p>
             {% endif %}

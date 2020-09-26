@@ -4,16 +4,13 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator
 from django.db import models
 
-
-# Create your models here.
-
-
-class Shelter(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.name
+#
+# class Shelter(models.Model):
+#     name = models.CharField(max_length=255)
+#     email = models.EmailField()
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Animal(models.Model):
@@ -24,8 +21,7 @@ class Animal(models.Model):
     special = models.TextField(blank=True, null=True)  # особые приметы
     arrival = models.DateField(
         validators=[MaxValueValidator(limit_value=date.today)])  # дата прибытия, не позднее сегодня
-    shelter = models.ForeignKey('Shelter', related_name='animals', on_delete=models.CASCADE)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1,)
-
+    # shelter = models.ForeignKey('Shelter', related_name='animals', on_delete=models.CASCADE)
+    shelter = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
