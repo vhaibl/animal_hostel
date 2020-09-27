@@ -6,4 +6,4 @@ class NewAnimalForm(forms.ModelForm):
 
     class Meta:
         model = Animal
-        fields = ('name', 'age', 'special', 'weight', 'height', 'shelter')
+        fields = ('name', 'age', 'special', 'weight', 'height')

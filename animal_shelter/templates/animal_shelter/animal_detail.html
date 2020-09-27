@@ -1,11 +1,15 @@
 {% extends 'animal_shelter/base.html' %}
 
 {% block content %}
-    <h3 >{{ animal_detail.name }}</h3>
+
+
+    <h3>{{ animal_detail.name }}
+    {% if user.is_authenticated %}<a class="btn btn-default" href="{% url 'animals:edit_animal' pk=animal_detail.id %}"><span
+            class="glyphicon glyphicon-pencil"></span></a>{% endif %}</h3>
 
     <table>
         <td><img src="http://thiscatdoesnotexist.com"></td>
-        <td >
+        <td>
 
             Особые приметы: {% if animal_detail.special %}{{ animal_detail.special }} {% else %} Нет {% endif %} <br>
             Вес: {{ animal_detail.weight }} кг.<br>
@@ -14,6 +18,6 @@
             Прибыл: {{ animal_detail.arrival }}<br>
             </p>
         </td>
-</table>
+    </table>
 {% endblock %}
 

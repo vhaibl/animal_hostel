@@ -1,11 +1,23 @@
 {% extends 'animal_shelter/base.html' %}
-
 {% block content %}
-
-<ul>{% for animal in animals_list %}
-        <li><a href="{% url 'animals:animal_detail' animal.pk %}" >{{ animal.name }}</a> {% if animal.special %}, {{ animal.special }} {% endif %}</li>
+    {% if user.is_authenticated and not user.is_superuser %}
+        <p class="text-warning">Идентифицированный пользователь без прав администратора, показаны только питомцы, относящиеся
+            к {{ user.first_name }} {{ user.last_name }}</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <p align="right"></p>
+        <a href="{% url 'animals:new_animal' %}">
+            Добавить питомца<span class="glyphicon glyphicon-plus"></span></a>
+        </p>
+    {% endif %}
+    <ul>{% for animal in animals_list %}
+        <li><a href="{% url 'animals:animal_detail' animal.pk %}">{{ animal.name }}</a> {% if animal.special %},
+            {{ animal.special }} {% endif %}
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'animals:edit_animal' pk=animal.pk %}"><span
+                        class="glyphicon glyphicon-pencil"></span></a>{% endif %}</li>
     {% endfor %}
 
-</ul>
+    </ul>
 
 {% endblock %}
