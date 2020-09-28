@@ -5,19 +5,18 @@
 
     <h3>{{ animal_detail.name }}
     {% if user.is_authenticated %}<a class="btn btn-default" href="{% url 'animals:edit_animal' pk=animal_detail.id %}"><span
-            class="glyphicon glyphicon-pencil"></span></a>{% endif %}</h3>
+            class="glyphicon glyphicon-pencil"></span></a>{% endif %}
+    {% if user.is_superuser %}<a class="btn btn-default" href="{% url 'animals:delete_animal' pk=animal_detail.id %}"><span class="glyphicon glyphicon-remove"></span></a>{% endif %}</h3>
 
-    <table>
-        <td><img src="http://thiscatdoesnotexist.com"></td>
+    <table><tr>
+        <td><img src="http://thiscatdoesnotexist.com" alt="Animal photo"></td>
         <td>
-
             Особые приметы: {% if animal_detail.special %}{{ animal_detail.special }} {% else %} Нет {% endif %} <br>
             Вес: {{ animal_detail.weight }} кг.<br>
             Рост: {{ animal_detail.height }} см.<br>
             Возвраст: {{ animal_detail.age }} лет<br>
             Прибыл: {{ animal_detail.arrival }}<br>
-            </p>
         </td>
-    </table>
+    </tr></table>
 {% endblock %}
 

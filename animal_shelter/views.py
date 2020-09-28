@@ -1,10 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from pytz import unicode
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser, BasePermission
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 
 from .forms import NewAnimalForm
@@ -80,6 +77,7 @@ class MyModelViewSet(ModelViewSet):
     }
     authentication_classes = (TokenAuthentication, SessionAuthentication, BasicAuthentication)
 
+
 def animals_list_view(request, *args, **kwargs):
     if request.user.is_authenticated and not request.user.is_superuser:
         context = Animal.objects.filter(shelter_id=request.user.id)
@@ -121,3 +119,15 @@ def edit_animal_view(request, pk):
     else:
         form = NewAnimalForm(instance=post)
     return render(request, 'animal_shelter/animal_edit.html', {'form': form})
+
+
+def delete_animal_view(request, pk):
+    post = get_object_or_404(Animal, pk=pk)
+    post.delete()
+    return redirect('animals:animals_list')
+
+def undelete_animal_view(request, pk):
+    if request.user.is_superuser:
+        post = Animal.deleted_objects.get(pk=pk)
+        post.undelete()
+    return redirect('animals:animals_list')

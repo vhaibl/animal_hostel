@@ -2,6 +2,7 @@ from django import forms
 
 from .models import Animal
 
+
 class NewAnimalForm(forms.ModelForm):
 
     class Meta:

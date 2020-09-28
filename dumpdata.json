@@ -497,7 +497,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$216000$ZnO5XE79imzj$E1zjTskGnGdiJRYcTrEII+Xo/nVLXW7z2JeyLb80QuU=",
-      "last_login": "2020-09-27T12:46:55.030Z",
+      "last_login": "2020-09-28T06:25:57.994Z",
       "is_superuser": true,
       "username": "django_admin",
       "first_name": "Супер",
@@ -515,7 +515,7 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$216000$O6nHfCKE0nXQ$tgDaLMt6AHykd85qY/DWDjeSwOHXG8w6yORDw8iLH7s=",
-      "last_login": "2020-09-27T12:55:46.454Z",
+      "last_login": "2020-09-27T15:43:34.187Z",
       "is_superuser": false,
       "username": "South",
       "first_name": "Приют",
@@ -612,10 +612,10 @@
   },
   {
     "model": "sessions.session",
-    "pk": "krtdtexxcb948zmow7w86a88tupscsww",
+    "pk": "ljbplelbqhqzoqwotie3qimbdtytfvy4",
     "fields": {
-      "session_data": ".eJxVjDEOwjAMRe-SGUUmTkzLyM4ZIid2SQGlUtNOiLtDpQ6w_vfef5nI61Li2nSOo5izQXP43RLnh9YNyJ3rbbJ5qss8JrspdqfNXifR52V3_w4Kt_KtKXjxyWVGR6wnCOg7JwMAEGmPqBkcU8DUSSJQoCAD9egkHXNmB-b9Ac0bN4M:1kMWDS:G66UfpFkxqMWg0ubUNsLb8ps42sXA89gNkwartrTjEs",
-      "expire_date": "2020-10-11T12:55:46.457Z"
+      "session_data": ".eJxVjEEOwiAQRe_C2pBWaJlx6d4zkBkYpGogKe3KeHdD0oVu_3vvv5Wnfct-b7L6JaqLGtXpd2MKTykdxAeVe9Whlm1dWHdFH7TpW43yuh7u30GmlnsNDke2DGdBg8A0Q5hCiihkkBNaCwOCmynJxNYAueSG4AgwGMcs6vMF7d44Zw:1kMmbl:DJ8uuJI3DEoqsvUYKGwybLfv9G7etGlUT2cNBoJbLbc",
+      "expire_date": "2020-10-12T06:25:57.999Z"
     }
   },
   {
@@ -699,6 +699,20 @@
       "height": "15",
       "special": "не хрипит",
       "arrival": "2020-09-27",
+      "shelter": 3
+    }
+  },
+  {
+    "model": "animal_shelter.animal",
+    "pk": 38,
+    "fields": {
+      "deleted": null,
+      "name": "Антон",
+      "age": "4",
+      "weight": "2.000",
+      "height": "56",
+      "special": "",
+      "arrival": "2020-09-28",
       "shelter": 3
     }
   }

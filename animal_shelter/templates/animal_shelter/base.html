@@ -1,28 +1,31 @@
 {% load static %}
 <html>
-    <head>
-        <title>Питомцы в наших приютах</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/animal_shelter.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                <p align="right">{{ user.first_name }} {{ user.last_name }}</p>
-            {% else %}
-                <p align="right">Not logged in.</p>
-            {% endif %}
-            <h1><a href="{% url 'animals:animals_list' %}">Питомцы в наших приютах</a></h1>
+<head>
+    <title>Питомцы в наших приютах</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/animal_shelter.css' %}">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P9UZej/VGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P8AAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUZej/AAAAAFRl6P9UZej/VGXo/1Rl6P9UZej/VGXo/1Rl6P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGXo/wAAAAAAAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P8AAAAAAAAAAFRl6P9UZej/VGXo/1Rl6P9UZej/VGXo/1Rl6P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGXo/wAAAAAAAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P8AAAAAAAAAAFRl6P9UZej/VGXo/1Rl6P9UZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P9UZej/AAAAAAAAAAAAAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVUZej/VGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P9UZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGXo/1Rl6P9UZej/VGXo/1Rl6P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRl6P9UZej/VGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGXo/1Rl6P9UZej/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUZej/VGXo/wAAAAAAAAAAAAAAAAAAAAAAAAAA+AcAAOAPAADoDwAA6A8AAOwHAADsBwAA9gcAAPYHAADnBwAA/4cAAP/HAAD/BwAA/wcAAP+PAAD/zwAA/58AAA=="
+          rel="icon" type="image/x-icon"/>
+
+</head>
+<body>
+<div class="page-header">
+    {% if user.is_authenticated %}
+        <p align="right">{{ user.first_name }} {{ user.last_name }}</p>
+    {% else %}
+        <p align="right">Not logged in.</p>
+    {% endif %}
+    <h1><a href="{% url 'animals:animals_list' %}">Питомцы в наших приютах</a></h1>
+</div>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
         </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
-                </div>
-            </div>
-        </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
