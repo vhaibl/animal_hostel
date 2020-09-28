@@ -37,7 +37,9 @@ yourserver/animals/detail/ -  API, добавление животных
   python manage.py runserver
 ```
 Доступны пользователи:
+
 Superuser, login:django_admin pass:django_pass
+
 User(Staff), login:South pass:justpass
 
  
